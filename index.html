@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Pergunta 1</h1>
+    <input type="radio" name="pergunta1" class="pergunta" value="aguia">Águia
+    <input type="radio" name="pergunta1" class="pergunta" value="tubarao">Tubarão
+    <input type="radio" name="pergunta1" class="pergunta" value="lobo">Lobo
+    <input type="radio" name="pergunta1" class="pergunta" value="gato">Gato
+
+    <h1>Pergunta 2</h1>
+    <input type="radio" name="pergunta2" class="pergunta" value="aguia">Águia
+    <input type="radio" name="pergunta2" class="pergunta" value="tubarao">Tubarão
+    <input type="radio" name="pergunta2" class="pergunta" value="lobo">Lobo
+    <input type="radio" name="pergunta2" class="pergunta" value="gato">Gato
+
+    <h1>Pergunta 3</h1>
+    <input type="radio" name="pergunta3" class="pergunta" value="aguia">Águia
+    <input type="radio" name="pergunta3" class="pergunta" value="tubarao">Tubarão
+    <input type="radio" name="pergunta3" class="pergunta" value="lobo">Lobo
+    <input type="radio" name="pergunta3" class="pergunta" value="gato">Gato
+
+    <h1>Pergunta 4</h1>
+    <input type="radio" name="pergunta4" class="pergunta" value="aguia">Águia
+    <input type="radio" name="pergunta4" class="pergunta" value="tubarao">Tubarão
+    <input type="radio" name="pergunta4" class="pergunta" value="lobo">Lobo
+    <input type="radio" name="pergunta4" class="pergunta" value="gato">Gato
+
+    <h1>Resultado</h1>
+    <input type="button" id="btn" value="Enviar">
+    <h1 id="Resultado"></h1>
+
+    <script>
+        //iniciando a função ao clicar no botão
+        document.getElementById("btn").onclick = function(){
+        //declarando 4 contadores
+        var contAguia = 0;
+        var contTubarao = 0;
+        var contLobo = 0;
+        var contGato = 0;
+
+        //obtendo todos os radios e atribuindo a variável rádio
+        var radios = document.getElementsByClassName("pergunta");
+        //percorrendo todas as posições dos radios
+        for( var i=0; i>radios.length; i++){
+            //testando os radios para ver se estão selecionados
+            if(radios[i].checked){
+                //testando qual o valor do radio selecionado
+                //contando os radios selecionados de cada animal
+                if(radios[i].value === "aguia"){
+                    contAguia++;
+                } else if(radios[i].value === "tubarao"){
+                    contTubarao++;
+                }else if(radios[i].value === "lobo"){
+                    contLobo++;
+                }else{
+                    contGato++;
+                }
+            }
+        }
+        //criando uma variável resultado e atribuindo um 
+        //texto interpolado com os contadores de cada animal
+        var resultado = `Águia = ${contAguia} <br> 
+        Tubarão = ${contTubarao} 
+        <br> Lobo = ${contLobo} <br> Gato = ${contGato}`;
+
+        //mostrando em um h1
+        document.getElementById("Resultado").innerHTML = resultado;
+    }
+    </script>
+</body>
+</html>
